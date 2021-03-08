@@ -1,0 +1,172 @@
+.footer{
+    //base mob
+    background-color: $black;
+    margin: 0 auto;
+    text-align: center;
+    a{
+        color: $white;
+        font-size: 1rem;
+        font-weight: $small;
+        cursor: default;
+    }
+    p{
+        color: $veryDarkGrey;
+    }
+
+    @include breakpoint-up(large){//dektop
+    margin-top: 11.4375rem;
+}
+@include breakpoint-down(medium){
+    margin-top: 5.25rem;
+}
+
+    &__grid{
+        @include breakpoint-up(large){
+            display: grid;
+            grid-template-columns: repeat(5, 1fr) repeat(1, 45.125rem);
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-areas: "looplogo looplogo looplogo looplogo looplogo looplinks"
+                                "about careers events products support cta";
+            column-gap: $fdefault;
+            row-gap: $fdefault;
+
+        }
+        @include breakpoint-down(medium){
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: repeat(6, auto) repeat(2, 54px);
+            grid-template-areas: "looplogo"
+                                "about"
+                                "careers"
+                                "events"
+                                "products"
+                                "support"
+                                "looplinks"
+                                "cta";
+            row-gap: 1.875rem;
+            margin-top: 3.375rem;
+        
+        }
+    }
+    &__logo{
+        grid-area: looplogo;
+        img{
+        width: 145.5px;
+        height: 25px;
+    }
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: start;
+            margin-top: 2.6875rem;    
+        }
+    }
+    &__links{
+        grid-area: looplinks;
+        @include breakpoint-up(large){
+            justify-self: end;
+            align-self: end;
+        }
+        a{
+            cursor: pointer;
+        &:not(:last-child){
+            margin-right: 1rem;
+        }
+        padding-bottom: 5px;
+        &:hover{
+            border-bottom: 0.125rem solid white;
+        }
+        
+    }
+        @include breakpoint-down(medium){
+            margin-top: 1.5625rem;
+
+        }
+    }
+    .frow2-1{
+        grid-area: about;
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: start;
+         
+        }
+    }
+    .frow2-2{
+        grid-area: careers;
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: start;    
+      
+        }
+    }
+    .frow2-3{
+        grid-area: events;
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: start;    
+
+        }
+    }
+    .frow2-4{
+        grid-area: products;
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: start;    
+        
+        }
+    }
+    .frow2-5{
+        grid-area: support;
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: start;    
+           
+        }
+    }
+    .frow2-8{
+        grid-area: cta;
+        margin-top: 0;
+        @include breakpoint-up(large){
+            display: grid;
+            justify-self: end;    
+        }
+        @include breakpoint-down(medium){
+            position: relative;
+            bottom: 1.4375rem;
+        }
+    }
+
+    .coollink{
+        background-color: rgba(255,255,255, .0);
+        display: block;
+        position: absolute;
+        width: 43px;
+        height: 22px;
+        opacity: 1;
+        cursor: pointer;
+
+        &::after{
+            content: '';
+            background-color: white;
+            display: block;
+            position: absolute;
+            top: 2.0625rem;
+            left: 17px;
+            width: 0px;
+            height: 2px;
+            opacity: 1;
+            transition: all .3s ease-in-out;
+            transform-origin: center;
+        }
+        &:hover::after{
+            width: 10px;
+            transform: scaleX(240%);
+        }
+    }
+}
+
+.attribution{
+    color: $veryDarkGrey;
+    a{
+        cursor: pointer;
+    }
+}

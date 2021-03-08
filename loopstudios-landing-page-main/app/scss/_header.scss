@@ -1,0 +1,196 @@
+.header{
+    height: 40.625rem;
+    &__overlay{
+        background-color: rgba(0, 0, 0, 0.267);
+        height: inherit;
+    }
+    &__wrapper{
+   
+        @include breakpoint-up(medium){
+            max-width: 1114px;
+            margin: 0 auto;
+        }
+
+       
+    }
+    
+    //pos responsive stuff
+    background-image: url('/images/desktop/image-hero.jpg');
+    background-size: cover;
+    //mobile
+    @include breakpoint-down(small){
+        background-image: url('/images/mobile/image-hero.jpg');
+        
+    }
+    &__nav{
+        list-style: none;
+        z-index: 3;
+         a{
+     
+            text-decoration: none;
+        }
+    }
+   &__logo{
+       z-index: inherit;
+       @include breakpoint-down(small){ //mobile
+        img{
+        height: 1.5625rem;
+        width: 9.25rem;
+            }
+        }
+   }
+
+  
+
+   //text
+   &__text{
+        padding-top: 7.875rem;
+       h1{
+           font-family: 'Josefin Sans', sans-serif;
+           font-style: normal;
+           color: white;
+           text-transform: uppercase;
+           border: 0.125rem solid $white;
+           text-align: left;
+           font-weight: $small;
+           line-height: 1;
+           @include breakpoint-down(small){ //mobile only
+            font-size: $fontH1Tag;
+            padding-top: 1.125rem;
+            padding-left: 1.6875rem;
+            padding-right: 1.6875rem;
+            padding-bottom: 0.625rem;
+            }
+               //desktop
+               @include breakpoint-up(medium){
+                padding-top: 40px;
+                padding-left: 46px;
+            }
+        
+          
+       }
+       
+       //tablet +desktop below
+       @include breakpoint-up(medium){
+        font-size: $fontH1TagDesktop;
+        width: 700px;
+        max-height: 280px;
+        
+       }
+       
+       
+       
+       //mobile below
+
+       @include breakpoint-down(small){
+        padding-top: 9.875rem;
+       }
+   }
+
+
+   &__links{
+       a{
+        color: white;
+        cursor: default;
+        &:not(:last-child){
+            margin-right: 6px;
+        }
+        .linedhover{
+                 //make below a good hover effect
+     
+               
+                background-color: white;
+                position: relative;
+                width: 23px;
+                height: 2px;
+                display: inline-block;
+                position: relative;
+                bottom: -13px;
+                right: -40px;
+                cursor: pointer;
+                &::after{ //hover hitbox
+                    content: "";
+                    display: block;
+                    height: 17px;
+                    width: 62px;
+                    transform: translate(-19px,-24px);
+                    position: relative;
+                }
+                opacity: 0;
+                transition: opacity 350ms ease-in-out;
+                &:hover{
+                    opacity: 1;
+                }
+        }
+        }    
+       }
+  
+   
+
+
+
+   .hamburger{
+    z-index: inherit;
+   > span{
+         display:block;
+        background-color: $white;
+        width: 1.625rem;
+        height: 0.125rem;
+        transform-origin: 4.3px 1px;
+        transition: all 200ms ease-in-out;
+        &:not(:last-child){
+            margin-bottom: 0.25rem;
+            }
+           
+        }
+
+        &.open{
+            >  span {
+              &:first-child{
+                  transform: rotate(45deg);
+              }
+              &:nth-child(2){
+                  opacity: 0;
+              }
+              &:last-child{
+                  transform: rotate(-45deg);
+              }
+              }
+          }
+      
+    }
+
+
+   //boxmenu
+   &__boxmenu{
+       position: absolute;
+       z-index: 1;
+       background-color: $black;
+       width: 100%;
+       height: 650px;
+       top:0;
+       left: 0;
+    
+       ul{
+           position: relative;
+            top: 7.4em;
+            left: -15px;
+        }
+
+       //lists
+       ul, li , a {
+       text-decoration: none;
+       list-style: none;
+        color: $white;
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        font-weight: $medium;
+        display: block;
+        font-size: 25px;
+        line-height:2.1;
+    }
+
+   
+ 
+   }
+}

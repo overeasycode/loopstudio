@@ -1,0 +1,342 @@
+.section{
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    overflow: hidden;
+    //secpos
+    @include breakpoint-down(small){//mob
+        margin-top: 65px;
+    }
+    @include breakpoint-up(large){
+        margin-top: 67px;
+    }
+
+    &__h2{
+        @include breakpoint-up(medium){
+            font-size: 1.875rem;
+            h2{
+                font-weight: $small;
+            }
+        }
+        @include breakpoint-down(medium){//mob+tab
+            justify-self: center;
+            font-size: 1.4375rem;
+            h2{
+            font-weight: $small;
+        }
+        }
+        @include breakpoint-up(large){//grid
+            align-self: end;
+        grid-area: sech2;
+        }
+    }
+
+    .button{
+        grid-area: button;
+        justify-self: end;
+        border: 2px solid black;
+        padding: 5px 34px 5px 34px;
+        background-color: $btnwhite;
+        align-self: center;
+        cursor: pointer;
+        a{
+        font-family: 'Alata', sans-serif;
+        text-decoration: none;
+        color: $black;
+        letter-spacing: 3px;
+        //tranny
+        transition: color 250ms ease-in-out;
+        }
+
+    @include breakpoint-down(medium){
+        margin: 0 auto;
+            }
+        //tranny
+        transition: background-color 350ms ease-in-out;
+            &:hover{
+                background-color: $btnblack;
+                a {
+                    color: $btnwhite;
+                }
+            }
+    }
+
+    &__grid{
+       
+        @include breakpoint-up(large){ //desktop 1020px
+            display: grid;
+            grid-template-columns: repeat(4, .24fr);
+            grid-template-rows: 8.625rem repeat(2, 451px);
+            grid-template-areas: "sech2  sech2 sech2 button"
+                                "grid-col1 grid-col2 grid-col3 grid-col4"
+                                "grid-row2-1 grid-row2-2 grid-row2-3 grid-row2-4";
+                                column-gap: 0.9375rem;
+                                row-gap: 2.0625rem;
+                            }
+
+        @include breakpoint-down(medium){
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas: "sech2"
+                                "grid-col1"
+                                "grid-col2"
+                                "grid-col3"
+                                "grid-col4"
+                                "grid-row2-1"
+                                "grid-row2-2"
+                                "grid-row2-3"
+                                "grid-row2-4"
+                                "button";
+        }       
+    }
+    span{
+        @include breakpoint-up(medium){
+        position: relative;
+        bottom: 90px;
+        left: 2.5938rem;
+        font-size: 1.875rem;
+    }
+        position: relative;
+        bottom: 40px;
+        left: 19.501px;
+        color: $white;
+        font-size: 25px;
+        max-width: 154px;
+        line-height: 1;
+        display: inline-block;
+        z-index: 2;
+        //tranny
+        transition: color 200ms ease-in-out;
+    }
+
+    .overgrid{
+        z-index: 2;
+        width: inherit;
+        height: inherit;
+        cursor: pointer;
+        //transition: all 300ms ease-in-out;
+        @include breakpoint-up(large){
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.6502801804315477) 0%, rgba(255,255,255,0) 49%); 
+    }
+        @include breakpoint-down(medium){
+            background: rgb(0,0,0);
+            background: linear-gradient(90deg, rgba(0,0,0,0.6502801804315477) 0%, rgba(255,255,255,0) 49%);
+            
+        }
+        
+        //hover
+        transition: background 300ms ease-in-out;
+      
+    }
+
+    .grid-img{
+       
+        //mobile
+        width: 328px;
+        height: 7.625rem;
+        margin-bottom: -25px;
+        @include breakpoint-up(medium){
+            width: 40.875rem;
+            height: 15rem;
+        }
+        @include breakpoint-up(large){ //desktop
+        width: 15.9375rem;
+        height: 28.0625rem;
+    }
+        
+    }
+    .grid-col1{
+        > .grid-img{
+            //mobile
+            background-image: url('/images/mobile/image-deep-earth.jpg');
+            background-size: cover;
+            
+            @include breakpoint-up(large){ //desktop
+            background-image: url('/images/desktop/image-deep-earth.jpg');
+            background-size: cover;
+        }
+           
+        }
+        
+            grid-area: grid-col1;
+           margin: 0 auto;
+           cursor: pointer;
+           &:hover{
+               .overgrid{
+                background: $lightwhite;
+                
+            }
+            span {
+                color: $blacklet;
+            }
+           }
+    }
+    .grid-col2{
+        > .grid-img{
+            background-image: url('/images/mobile/image-night-arcade.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-night-arcade.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-col2;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            } 
+    }
+    .grid-col3{
+        > .grid-img{
+            background-image: url('/images/mobile/image-soccer-team.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-soccer-team.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-col3;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            }
+    }
+
+    .grid-col4{
+        > .grid-img{
+            background-image: url('/images/mobile/image-grid.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-grid.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-col4;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            }
+    }
+
+    .grid-row2-1{
+        > .grid-img{
+            background-image: url('/images/mobile/image-from-above.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-from-above.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-row2-1;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            }
+    }
+    .grid-row2-2{
+        > .grid-img{
+            background-image: url('/images/mobile/image-pocket-borealis.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-pocket-borealis.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-row2-2;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            }
+    }
+    .grid-row2-3{
+        > .grid-img{
+            background-image: url('/images/mobile/image-curiosity.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-curiosity.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-row2-3;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            }
+    }
+    .grid-row2-4{
+        > .grid-img{
+            background-image: url('/images/mobile/image-fisheye.jpg');
+            background-size: cover;
+
+            @include breakpoint-up(large){
+            background-image: url('/images/desktop/image-fisheye.jpg');
+            background-size: cover;
+        }
+        }
+            grid-area: grid-row2-4;
+            margin: 0 auto;
+            cursor: pointer;
+            &:hover{
+                .overgrid{
+                 background: $lightwhite;
+                 
+             }
+             span {
+                 color: $blacklet;
+             }
+            }
+    }
+    
+
+    
+}
